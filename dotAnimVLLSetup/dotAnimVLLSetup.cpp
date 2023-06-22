@@ -79,5 +79,7 @@ int main(int argc, char* argv[])
         }
     }
     std::cout << "Completed. >>" + path.erase(path.length() - 5) + "_fixed.anim" << std::endl;
+    system("PAUSE");
+    
     return 0;
 }
