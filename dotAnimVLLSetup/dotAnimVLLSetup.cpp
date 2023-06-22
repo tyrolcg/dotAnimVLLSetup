@@ -37,7 +37,22 @@ int main(int argc, char* argv[])
         return -1;
     }
     std::cout << "File opened." << std::endl;
+    
     // 出力ファイルはpathのファイル名_fixed.anim
+    std::ifstream ifstemp(path.erase(path.length() - 5) + "_fixed.anim");
+    // 重複確認
+    if(!ifstemp.fail())
+    {
+        std::cout << "Generate file exists. Do you want to overwrite?" << std::endl;
+        std::cout << path.erase(path.length() - 5) << "_fixed.anim" << std::endl;
+        std::cout << "y/n" << std::endl;
+        std::cin >> str;
+        if(str != "y")
+        {
+            std::cerr << "End this program." << std::endl;
+            return -1;
+        }
+    }
     std::ofstream ofs(path.erase(path.length() - 5) + "_fixed.anim");
 
     // animファイルの中身を1行ずつ取り出して検証
@@ -63,6 +78,6 @@ int main(int argc, char* argv[])
             ofs << str <<std::endl;
         }
     }
-    std::cout << "Completed. >>" + path.erase(path.length() - 5) + "_fixed.anim" << std::endl;;
+    std::cout << "Completed. >>" + path.erase(path.length() - 5) + "_fixed.anim" << std::endl;
     return 0;
 }
