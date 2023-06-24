@@ -3,9 +3,10 @@
 #include<string>
 
 
-bool isFbx(std::string path)
+bool isAnim(std::string path)
 {
-    return path.substr(path.length() - 4) == ".fbx";
+    std::cout << path.substr(path.length() - 5) << std::endl;
+    return path.substr(path.length() - 5) == ".anim";
 }
 
 // 左側のスペースを削除
@@ -25,15 +26,16 @@ int main(int argc, char* argv[])
     std::cin >> path;
     std::ifstream ifs(path);
     
+    std::cout << "write .anim file path..." << std::endl;
     
     if(ifs.fail())
     {
         std::cerr << "Failed to open file." << std::endl;
         return -1;
     }
-    if(isFbx(path))
+    if(!isAnim(path))
     {
-        std::cerr << "Not fbx file." << std::endl;
+        std::cerr << "Not anim file." << std::endl;
         return -1;
     }
     std::cout << "File opened." << std::endl;
