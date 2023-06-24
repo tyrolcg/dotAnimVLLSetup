@@ -5,7 +5,6 @@
 
 bool isAnim(std::string path)
 {
-    std::cout << path.substr(path.length() - 5) << std::endl;
     return path.substr(path.length() - 5) == ".anim";
 }
 
@@ -22,11 +21,12 @@ std::string trimLeftSpace(const std::string& string , const char* trimCharacterL
 int main(int argc, char* argv[])
 {
     std::string path, str;
-    
+
+    std::cout << "write .anim file path..." << std::endl;
     std::cin >> path;
     std::ifstream ifs(path);
     
-    std::cout << "write .anim file path..." << std::endl;
+    
     
     if(ifs.fail())
     {
