@@ -69,9 +69,9 @@ int main(int argc, char* argv[])
             // attributeから始まっていたら次の行を読む
             getline(ifs, str);
             // attributeの次の行がpathから始まる
-            if(trimLeftSpace(str).rfind("path", 0) == 0)
+            if(trimLeftSpace(str).rfind("path:", 0) == 0)
             {
-                str = str.erase(str.find("path") + 4);
+                str = str.erase(str.find("path:") + 5);
                 ofs << str << std::endl;
             }
         }
